@@ -380,7 +380,7 @@ void train(const std::vector<std::string> args) {
     fasttext->train(a);
   }
   fasttext->saveModel(outputFileName);
-  fasttext->saveVectors(a.output + ".vec");
+  // fasttext->saveVectors(a.output + ".vec");
   if (a.saveOutput) {
     fasttext->saveOutput(a.output + ".output");
   }
