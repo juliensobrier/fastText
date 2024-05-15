@@ -15,7 +15,7 @@ set(CMAKE_CXX_STANDARD 17)
 set (fasttext_VERSION_MAJOR 0)
 set (fasttext_VERSION_MINOR 1)
 
-include_directories(fasttext)
+# include_directories(fasttext)
 
 set(CMAKE_CXX_FLAGS " -pthread -std=c++17 -funroll-loops -O3 -march=native -DNDEBUG")
 
@@ -43,7 +43,6 @@ set(SOURCE_FILES
     src/dictionary.cc
     src/fasttext.cc
     src/loss.cc
-    src/main.cc
     src/matrix.cc
     src/meter.cc
     src/model.cc
