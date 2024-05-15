@@ -7,7 +7,7 @@
 #
 
 CXX = c++
-CXXFLAGS = -pthread -std=c++17 -march=native
+CXXFLAGS = -Wall -pthread -std=c++17 -march=native -march=native -ffast-math -Wsuggest-final-methods -Walloc-zero -Wsuggest-override -Wodr -flto -ftree-loop-linear -floop-strip-mine -floop-block
 OBJS = args.o autotune.o matrix.o dictionary.o loss.o productquantizer.o densematrix.o quantmatrix.o vector.o model.o utils.o meter.o simd.o fasttext.o
 INCLUDES = -I.
 
