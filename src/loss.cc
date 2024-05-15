@@ -299,8 +299,17 @@ void HierarchicalSoftmaxLoss::dfs(
   real f = wo_->dotRow(hidden, node - osz_);
   f = 1. / (1 + std::exp(-f));
 
-  dfs(k, threshold, tree_[node].left, score + std_log(1.0 - f), heap, hidden);
-  dfs(k, threshold, tree_[node].right, score + std_log(f), heap, hidden);
+  /*dfs(k, threshold, tree_[node].left, score + std_log(1.0 - f), heap, hidden);
+  dfs(k, threshold, tree_[node].right, score + std_log(f), heap, hidden);*/
+  real score_left = score + log(1.0 - f);
+  real score_right = score + log(f);
+  if (score_left > score_right) {
+	  dfs(k, threshold, tree_[node].left, score_left, heap, hidden);
+	  dfs(k, threshold, tree_[node].right, score_right, heap, hidden);
+  } else {
+	  dfs(k, threshold, tree_[node].right, score_right, heap, hidden);
+	  dfs(k, threshold, tree_[node].left, score_left, heap, hidden);
+  }
 }
 
 SoftmaxLoss::SoftmaxLoss(std::shared_ptr<Matrix>& wo) : Loss(wo) {}
